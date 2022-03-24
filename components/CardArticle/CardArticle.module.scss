@@ -1,0 +1,30 @@
+.card {
+  max-width: 480px;
+  margin-right: var(--margin-padding);
+  margin-bottom: calc(var(--margin-padding) * 2);
+
+  &__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--s-text-l);
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: var(--s-text-m);
+    color: var(--c-gray);
+  }
+
+  &__link {
+    padding-bottom: calc(var(--margin-padding) / 4);
+    border-bottom: 1px solid var(--c-gray);
+    color: var(--c-gray);
+    transition: 0.2s linear all;
+    font-size: var(--s-text-m);
+
+    &:hover {
+      border-bottom: 1px solid var(--c-text);
+      color: var(--c-text);
+    }
+  }
+}
