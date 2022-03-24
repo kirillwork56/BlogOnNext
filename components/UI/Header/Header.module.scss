@@ -8,12 +8,16 @@
     margin: 0 var(--margin-padding) 0 var(--margin-padding);
     padding: var(--margin-padding);
 
-    min-width: 110px;
+    width: 125px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0);
     color: var(--c-gray);
     transition: 0.2s linear all;
     font-weight: 700;
+
+    @media (max-width: 576px) {
+      width: 100px;
+    }
 
     &:hover {
       border-bottom: 1px solid var(--c-text);

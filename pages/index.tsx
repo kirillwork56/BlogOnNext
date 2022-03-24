@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import CardArticle from "../components/CardArticle";
-import Header from "../components/Header";
-import Title from "../components/Title";
-import Wrapper from "../components/Wrapper";
+import Layout from "../components/Layout";
+import Card from "../components/UI/Card";
+import Title from "../components/UI/Title";
+import Wrapper from "../components/UI/Wrapper";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -15,19 +15,39 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Header></Header>
-        <Title></Title>
+      <Layout>
+        <Title>Последние записи</Title>
         <Wrapper>
-          <CardArticle />
-          <CardArticle />
-          <CardArticle />
-          <CardArticle />
+          <Card
+            link="/"
+            title="Lorem ipsum dolor"
+            text="Natus iusto
+          autem odit omnis animi provident ullam perspiciatis qui. Consequuntur et
+          ipsam sunt deserunt! Deserunt tenetur rem enim assumenda atque eveniet."
+          />
+          <Card
+            link="/"
+            title="Lorem ipsum dolor"
+            text="Natus iusto
+          autem odit omnis animi provident ullam perspiciatis qui. Consequuntur et
+          ipsam sunt deserunt! Deserunt tenetur rem enim assumenda atque eveniet."
+          />
+          <Card
+            link="/"
+            title="Lorem ipsum dolor"
+            text="Natus iusto
+          autem odit omnis animi provident ullam perspiciatis qui. Consequuntur et
+          ipsam sunt deserunt! Deserunt tenetur rem enim assumenda atque eveniet."
+          />
+          <Card
+            link="/"
+            title="Lorem ipsum dolor"
+            text="Natus iusto
+          autem odit omnis animi provident ullam perspiciatis qui. Consequuntur et
+          ipsam sunt deserunt! Deserunt tenetur rem enim assumenda atque eveniet."
+          />
         </Wrapper>
-        <div className={styles.flexWrapper}>
-          {/* добавить обертку с карточками */}
-        </div>
-      </main>
+      </Layout>
     </div>
   );
 };

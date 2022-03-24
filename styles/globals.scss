@@ -23,8 +23,25 @@ a {
   --s-text-m: 20px;
   --s-text-l: 25px;
   --c-text: #fff;
+
   --c-bg: #1a1a1a;
+
   --c-gray: #808080;
+
   --f-family: "Inter", sans-serif;
+
   --margin-padding: 20px;
+
+  @media (max-width: 992px) {
+  }
+
+  @media (max-width: 768px) {
+    --s-text-m: 15px;
+    --s-text-l: 20px;
+    --margin-padding: 10px;
+  }
+
+  @media (max-width: 576px) {
+    --margin-padding: 5px;
+  }
 }
