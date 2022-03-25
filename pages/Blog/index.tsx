@@ -6,7 +6,7 @@ import Card from "../../components/UI/Card";
 import Title from "../../components/UI/Title";
 import Wrapper from "../../components/UI/Wrapper";
 import client from "../../contentful";
-import { IArticleFields } from "../../contentful/contentful";
+import { IArticle, IArticleFields } from "../../contentful/contentful";
 
 type Props = {
   articles: IArticle[];
