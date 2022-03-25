@@ -16,10 +16,9 @@ import {
 
 type Props = {
   home: IMain;
-  articles: IArticle[];
 };
 
-const Home: NextPage<Props> = ({ home, articles }) => {
+const Home: NextPage<Props> = ({ home }) => {
   return (
     <>
       <Head>
@@ -30,18 +29,7 @@ const Home: NextPage<Props> = ({ home, articles }) => {
 
       <Layout>
         <Title>{home.fields.title}</Title>
-        <Title>Последние записи</Title>
         <Text>{documentToReactComponents(home.fields.description!)}</Text>
-        <Wrapper>
-          {articles.map((item) => (
-            <Card
-              key={item.fields.slug}
-              link={`/articles/${item.fields.slug}`}
-              title={item.fields.title}
-              text={item.fields.description!}
-            />
-          ))}
-        </Wrapper>
       </Layout>
     </>
   );
@@ -55,17 +43,11 @@ export const getStaticProps: GetStaticProps = async () => {
     limit: 1,
   });
 
-  const articleEntries = await client.getEntries<IArticleFields>({
-    content_type: "Article",
-    select: "fields.title,fields.description,fields.slug",
-  });
-
   const [homePage] = home.items;
 
   return {
     props: {
       home: homePage,
-      articles: articleEntries.items,
     },
     revalidate: 3600,
   };

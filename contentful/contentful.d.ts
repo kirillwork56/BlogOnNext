@@ -40,9 +40,6 @@ export interface IMainFields {
 
   /** Description */
   description?: Document | undefined;
-
-  /** Background */
-  background?: Asset | undefined;
 }
 
 export interface IMain extends Entry<IMainFields> {
