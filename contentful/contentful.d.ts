@@ -34,6 +34,31 @@ export interface IArticle extends Entry<IArticleFields> {
   };
 }
 
+export interface ICvFields {
+  /** Title */
+  title?: string | undefined;
+
+  /** Text */
+  text?: Document | undefined;
+}
+
+export interface ICv extends Entry<ICvFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "cv";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IMainFields {
   /** Title */
   title?: string | undefined;
@@ -59,7 +84,7 @@ export interface IMain extends Entry<IMainFields> {
   };
 }
 
-export type CONTENT_TYPE = "Article" | "main";
+export type CONTENT_TYPE = "Article" | "cv" | "main";
 
 export type LOCALE_CODE = "en-US";
 

@@ -1,11 +1,18 @@
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { FC } from "react";
 import Layout from "../../components/Layout";
+import Text from "../../components/UI/Text";
 import Title from "../../components/UI/Title";
+import client from "../../contentful";
+import { ICv, ICvFields } from "../../contentful/contentful";
 
-type Props = {};
+type Props = {
+  resume: ICv;
+};
 
-const CV: FC<Props> = ({}) => {
+const CV: FC<Props> = ({ resume }) => {
   return (
     <>
       <Head>
@@ -15,10 +22,26 @@ const CV: FC<Props> = ({}) => {
       </Head>
 
       <Layout>
-        <Title>Резюме</Title>
+        <Title>{resume.fields.title}</Title>
+        <Text>{documentToReactComponents(resume.fields.text!)}</Text>
       </Layout>
     </>
   );
 };
 
 export default CV;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const CV = await client.getEntries<ICvFields>({
+    content_type: "cv",
+  });
+
+  const [CVPage] = CV.items;
+
+  return {
+    props: {
+      resume: CVPage,
+    },
+    revalidate: 3600,
+  };
+};

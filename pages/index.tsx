@@ -2,17 +2,11 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Layout from "../components/Layout";
-import Card from "../components/UI/Card";
 import Text from "../components/UI/Text";
 import Title from "../components/UI/Title";
-import Wrapper from "../components/UI/Wrapper";
 import client from "../contentful";
-import {
-  IArticle,
-  IArticleFields,
-  IMain,
-  IMainFields,
-} from "../contentful/contentful";
+import { IMain, IMainFields } from "../contentful/contentful";
+import styles from "../styles/Home.module.scss";
 
 type Props = {
   home: IMain;
@@ -28,8 +22,10 @@ const Home: NextPage<Props> = ({ home }) => {
       </Head>
 
       <Layout>
-        <Title>{home.fields.title}</Title>
-        <Text>{documentToReactComponents(home.fields.description!)}</Text>
+        <div className={styles.centerElement}>
+          <Title>{home.fields.title}</Title>
+          <Text>{documentToReactComponents(home.fields.description!)}</Text>
+        </div>
       </Layout>
     </>
   );
